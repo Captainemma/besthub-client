@@ -18,10 +18,10 @@ import MTNOrders from "./pages/shopping-view/mtn-orders";
 import ATOrders from "./pages/shopping-view/at-orders";
 import TelecelOrders from "./pages/shopping-view/telecel-orders";
 import WalletPage from "./pages/shopping-view/Wallet";
-import TransactionsPage from "./pages/shopping-view/transactions";
+import TransactionsPage from "./pages/shopping-view/Transactions";
 // FIX: Use consistent naming - either ProfilePage or ShoppingProfile
 import ShoppingProfile from "./pages/shopping-view/profile"; // lowercase p
-import SettingsPage from "./pages/shopping-view/settings";
+import SettingsPage from "./pages/shopping-view/Settings";
 import CheckAuth from "./components/common/check-auth";
 import UnauthPage from "./pages/unauth-page";
 import { useDispatch, useSelector } from "react-redux";

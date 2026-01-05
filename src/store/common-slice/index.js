@@ -23,6 +23,7 @@ export const addFeatureImage = createAsyncThunk(
   async (image) => {
     const response = await axios.post(
       `${API_BASE_URL}/common/feature/add`,
+      
       { image }
     );
 

@@ -11,6 +11,7 @@ import {
   bulkUpdateOrderStatus,
   clearError 
 } from "@/store/admin/telecel-orders-slice";
+import { API_BASE_URL } from '../../../config';
 
 function TelecelOrders() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -46,7 +47,7 @@ function TelecelOrders() {
     const testAPI = async () => {
       try {
         console.log('🔍 Testing Telecel orders API directly...');
-        const response = await fetch('http://localhost:4400/api/admin/orders/telecel');
+        const response = await fetch(`${API_BASE_URL}/admin/orders/telecel`);
         const data = await response.json();
         console.log('📡 Telecel Orders API Response:', data);
         if (data.success && data.data) {

@@ -5,6 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import DataPackageCard from "@/components/shopping-view/data-package-card";
 import PurchaseConfirmationModal from "@/components/shopping-view/purchase-confirmation-modal";
 import { fetchWalletBalance } from "@/store/shop/wallet-slice";
+import { API_BASE_URL } from '../../../config';
 
 function ShoppingHome() {
   const { user } = useSelector((state) => state.auth);
@@ -26,7 +27,7 @@ function ShoppingHome() {
     try {
       console.log('🔄 Making purchase...', selectedPurchase);
       
-      const response = await fetch('http://localhost:4400/api/shop/orders', {
+      const response = await fetch(`${API_BASE_URL}/shop/orders`, {
         method: 'POST',
         credentials: 'include',
         headers: {

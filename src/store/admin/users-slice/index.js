@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { API_BASE_URL } from '../../../config';
 
 // Async thunk to fetch all users
 export const fetchAllUsers = createAsyncThunk(
   'adminUsers/fetchAll',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:4400/api/admin/users', {
+      const response = await fetch(`${API_BASE_URL}/admin/users`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -34,7 +35,7 @@ export const updateUserRole = createAsyncThunk(
   'adminUsers/updateRole',
   async ({ userId, role }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:4400/api/admin/users/${userId}/role`, {
+      const response = await fetch(`${API_BASE_URL}/admin/users/${userId}/role`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
@@ -65,7 +66,7 @@ export const updateUserStatus = createAsyncThunk(
   'adminUsers/updateStatus',
   async ({ userId, status }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:4400/api/admin/users/${userId}/status`, {
+      const response = await fetch(`${API_BASE_URL}/admin/users/${userId}/status`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
@@ -96,7 +97,7 @@ export const deleteUser = createAsyncThunk(
   'adminUsers/deleteUser',
   async (userId, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:4400/api/admin/users/${userId}`, {
+      const response = await fetch(`${API_BASE_URL}/admin/users/${userId}`, {
         method: 'DELETE',
         credentials: 'include',
         headers: {

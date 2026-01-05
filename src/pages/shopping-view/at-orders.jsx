@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
+import { API_BASE_URL } from '../../../config';
 
 function ATOrders() {
   const [atOrders, setAtOrders] = useState([]);
@@ -17,7 +18,7 @@ function ATOrders() {
       setLoading(true);
       console.log('🔄 Fetching AT orders for user:', user.id);
       
-      const response = await fetch(`http://localhost:4400/api/shop/orders/user/${user.id}`, {
+      const response = await fetch(`${API_BASE_URL}/shop/orders/user/${user.id}`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'

@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Save, Settings, Package, Shield, Bell, Globe, Wifi, Zap, Clock, RefreshCw } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { API_BASE_URL } from '../../../config';
 
 // Custom Toggle Switch component
 const ToggleSwitch = ({ id, checked, onCheckedChange, label, description, disabled = false }) => {
@@ -70,7 +71,7 @@ function AdminSettings() {
       setLoading(true);
       console.log('🔄 Fetching system settings...');
       
-      const response = await fetch('http://localhost:4400/api/admin/settings', {
+      const response = await fetch(`${API_BASE_URL}/admin/settings`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -111,7 +112,7 @@ function AdminSettings() {
       setSaving(true);
       console.log('💾 Saving system settings:', settings);
       
-      const response = await fetch('http://localhost:4400/api/admin/settings', {
+      const response = await fetch(`${API_BASE_URL}/admin/settings`, {
         method: 'PUT',
         credentials: 'include',
         headers: {

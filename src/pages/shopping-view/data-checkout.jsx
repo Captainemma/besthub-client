@@ -61,7 +61,7 @@ function DataCheckout() {
     setIsPurchasing(true);
 
     try {
-      const response = await fetch('http://localhost:4400/api/shop/orders', {
+      const response = await fetch(`${API_BASE_URL}/shop/orders`, {
         method: 'POST',
         credentials: 'include',
         headers: {

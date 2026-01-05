@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Wifi, Zap, Clock, Wallet, BarChart3, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { API_BASE_URL } from '../../../config';
 
 function ShoppingDashboard() {
   const { user } = useSelector((state) => state.auth);
@@ -26,7 +27,7 @@ function ShoppingDashboard() {
       console.log('🔄 Fetching dashboard data for user:', user.id);
       
       // Fetch user orders
-      const ordersResponse = await fetch(`http://localhost:4400/api/shop/orders/user/${user.id}`, {
+      const ordersResponse = await fetch(`${API_BASE_URL}/shop/orders/user/${user.id}`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'

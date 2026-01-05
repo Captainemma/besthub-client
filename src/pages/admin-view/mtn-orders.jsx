@@ -12,6 +12,7 @@ import {
   bulkUpdateOrderStatus,
   clearError 
 } from "@/store/admin/mtn-orders-slice";
+import { API_BASE_URL } from '../../../config';
 
 function MTNOrders() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -63,7 +64,7 @@ function MTNOrders() {
         console.log('🔍 Testing MTN orders APIs directly...');
         
         // Test main API
-        const mainResponse = await fetch('http://localhost:4400/api/admin/orders/mtn');
+        const mainResponse = await fetch(`${API_BASE_URL}/admin/orders/mtn`);
         const mainData = await mainResponse.json();
         console.log('📡 Main MTN Orders API Response:', {
           success: mainData.success,
@@ -73,7 +74,7 @@ function MTNOrders() {
         });
 
         // Test alternative API
-        const altResponse = await fetch('http://localhost:4400/api/admin/orders/mtn/all');
+        const altResponse = await fetch(`${API_BASE_URL}/admin/orders/mtn/all`);
         const altData = await altResponse.json();
         console.log('📡 Alternative Orders API Response:', {
           success: altData.success,

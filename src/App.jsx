@@ -17,7 +17,7 @@ import ShoppingDashboard from "./pages/shopping-view/dashboard";
 import MTNOrders from "./pages/shopping-view/mtn-orders";
 import ATOrders from "./pages/shopping-view/at-orders";
 import TelecelOrders from "./pages/shopping-view/telecel-orders";
-import WalletPage from "./pages/shopping-view/wallet";
+import WalletPage from "./pages/shopping-view/Wallet";
 import TransactionsPage from "./pages/shopping-view/transactions";
 // FIX: Use consistent naming - either ProfilePage or ShoppingProfile
 import ShoppingProfile from "./pages/shopping-view/profile"; // lowercase p

@@ -11,7 +11,7 @@ import {
   bulkUpdateOrderStatus,
   clearError 
 } from "@/store/admin/telecel-orders-slice";
-import { API_BASE_URL } from '../../../config';
+import { API_BASE_URL } from '../../config'; 
 
 function TelecelOrders() {
   const [searchTerm, setSearchTerm] = useState("");

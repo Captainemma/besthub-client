@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Save, Settings, Package, Shield, Bell, Globe, Wifi, Zap, Clock, RefreshCw } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
-import { API_BASE_URL } from '../../../config';
+import { API_BASE_URL } from '../../config'; 
 
 // Custom Toggle Switch component
 const ToggleSwitch = ({ id, checked, onCheckedChange, label, description, disabled = false }) => {

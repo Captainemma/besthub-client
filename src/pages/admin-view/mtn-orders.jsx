@@ -12,7 +12,7 @@ import {
   bulkUpdateOrderStatus,
   clearError 
 } from "@/store/admin/mtn-orders-slice";
-import { API_BASE_URL } from '../../../config';
+import { API_BASE_URL } from '../../config'; 
 
 function MTNOrders() {
   const [searchTerm, setSearchTerm] = useState("");

@@ -5,7 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import DataPackageCard from "@/components/shopping-view/data-package-card";
 import PurchaseConfirmationModal from "@/components/shopping-view/purchase-confirmation-modal";
 import { fetchWalletBalance } from "@/store/shop/wallet-slice";
-import { API_BASE_URL } from '../../../config';
+import { API_BASE_URL } from '../../config'; 
 
 function ShoppingHome() {
   const { user } = useSelector((state) => state.auth);

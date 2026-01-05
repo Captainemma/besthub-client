@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
-import { API_BASE_URL } from '../../../config';
+import { API_BASE_URL } from '../../config'; 
 
 function TelecelOrders() {
   const [telecelOrders, setTelecelOrders] = useState([]);

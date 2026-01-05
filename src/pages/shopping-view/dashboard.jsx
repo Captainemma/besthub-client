@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Wifi, Zap, Clock, Wallet, BarChart3, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { API_BASE_URL } from '../../../config';
+import { API_BASE_URL } from '../../config'; 
 
 function ShoppingDashboard() {
   const { user } = useSelector((state) => state.auth);

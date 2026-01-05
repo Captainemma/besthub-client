@@ -1,6 +1,7 @@
 // /src/store/shop/purchase-slice/index.js (NEW FILE)
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { API_BASE_URL } from '../../../config';
 
 const initialState = {
   isLoading: false,
@@ -14,7 +15,7 @@ export const purchaseDataPackage = createAsyncThunk(
   async (purchaseData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:4400/api/shop/data/purchase",
+        `${API_BASE_URL}/shop/data/purchase`,
         purchaseData
       );
       return response.data;
@@ -29,7 +30,7 @@ export const fetchPurchaseHistory = createAsyncThunk(
   async (userId, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `http://localhost:4400/api/shop/purchase/history/${userId}`
+        `${API_BASE_URL}/shop/purchase/history/${userId}`
       );
       return response.data;
     } catch (error) {

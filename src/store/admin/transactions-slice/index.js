@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { API_BASE_URL } from '../../../config';
 
 // Async thunk to fetch all transactions
 export const fetchAllTransactions = createAsyncThunk(
   'adminTransactions/fetchAll',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:4400/api/admin/transactions', {
+      const response = await fetch(`${API_BASE_URL}/admin/transactions`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -34,7 +35,7 @@ export const fetchTransactionStats = createAsyncThunk(
   'adminTransactions/fetchStats',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:4400/api/admin/transactions/stats', {
+      const response = await fetch(`${API_BASE_URL}/admin/transactions/stats`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'

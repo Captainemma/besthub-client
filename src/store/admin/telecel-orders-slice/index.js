@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { API_BASE_URL } from '../../../config';
 
 // Async thunk to fetch all Telecel orders
 export const fetchAllTelecelOrders = createAsyncThunk(
@@ -7,7 +8,7 @@ export const fetchAllTelecelOrders = createAsyncThunk(
     try {
       console.log('🔄 Redux: Fetching Telecel orders from API...');
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/telecel', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/telecel`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -50,7 +51,7 @@ export const fetchAllOrders = createAsyncThunk(
     try {
       console.log('🔄 Redux: Fetching ALL orders from API...');
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/telecel/all', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/telecel/all`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -90,7 +91,7 @@ export const updateOrderStatus = createAsyncThunk(
     try {
       console.log(`🔄 Redux: Updating Telecel order ${orderId} status to ${status}`);
       
-      const response = await fetch(`http://localhost:4400/api/admin/orders/telecel/${orderId}/status`, {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/telecel/${orderId}/status`, {
         method: 'PATCH',
         credentials: 'include',
         headers: {
@@ -125,7 +126,7 @@ export const bulkUpdateOrderStatus = createAsyncThunk(
     try {
       console.log(`🔄 Redux: Bulk updating ${orderIds.length} Telecel orders status to ${status}`);
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/telecel/bulk-status', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/telecel/bulk-status`, {
         method: 'PATCH',
         credentials: 'include',
         headers: {

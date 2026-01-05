@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { API_BASE_URL } from '../../../config';
 
 // Async thunk to fetch all prices
 export const fetchAllPrices = createAsyncThunk(
   'prices/fetchAll',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:4400/api/admin/prices', {
+      const response = await fetch(`${API_BASE_URL}/admin/prices`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -34,7 +35,7 @@ export const updatePrices = createAsyncThunk(
   'prices/update',
   async ({ network, userRole, packages }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:4400/api/admin/prices/${network}/${userRole}`, {
+      const response = await fetch(`${API_BASE_URL}/admin/prices/${network}/${userRole}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
@@ -65,7 +66,7 @@ export const addNewPackage = createAsyncThunk(
   'prices/addPackage',
   async ({ network, userRole, packageData }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:4400/api/admin/prices/${network}/${userRole}/packages`, {
+      const response = await fetch(`${API_BASE_URL}/admin/prices/${network}/${userRole}/packages`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -96,7 +97,7 @@ export const deletePackage = createAsyncThunk(
   'prices/deletePackage',
   async ({ network, userRole, packageId }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:4400/api/admin/prices/${network}/${userRole}/packages/${packageId}`, {
+      const response = await fetch(`${API_BASE_URL}/admin/prices/${network}/${userRole}/packages/${packageId}`, {
         method: 'DELETE',
         credentials: 'include',
         headers: {

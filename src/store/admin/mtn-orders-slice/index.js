@@ -7,7 +7,7 @@ export const fetchAllMTNOrders = createAsyncThunk(
     try {
       console.log('🔄 Redux: Fetching MTN orders from API...');
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/mtn', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/mtn`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export const fetchAllOrders = createAsyncThunk(
     try {
       console.log('🔄 Redux: Fetching ALL orders from API...');
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/mtn/all', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/mtn/all`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ export const updateOrderStatus = createAsyncThunk(
     try {
       console.log(`🔄 Redux: Updating order ${orderId} status to ${status}`);
       
-      const response = await fetch(`http://localhost:4400/api/admin/orders/mtn/${orderId}/status`, {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/mtn/${orderId}/status`, {
         method: 'PATCH',
         credentials: 'include',
         headers: {
@@ -125,7 +125,7 @@ export const bulkUpdateOrderStatus = createAsyncThunk(
     try {
       console.log(`🔄 Redux: Bulk updating ${orderIds.length} orders status to ${status}`);
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/mtn/bulk-status', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/mtn/bulk-status`, {
         method: 'PATCH',
         credentials: 'include',
         headers: {

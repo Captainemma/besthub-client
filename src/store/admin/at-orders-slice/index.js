@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { API_BASE_URL } from '../../../config';
 
 // Async thunk to fetch all AirtelTigo orders
 export const fetchAllATOrders = createAsyncThunk(
@@ -7,7 +8,7 @@ export const fetchAllATOrders = createAsyncThunk(
     try {
       console.log('🔄 Redux: Fetching AirtelTigo orders from API...');
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/at', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/at`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -50,7 +51,7 @@ export const fetchAllOrders = createAsyncThunk(
     try {
       console.log('🔄 Redux: Fetching ALL orders from API...');
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/at/all', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/at/all`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -90,7 +91,7 @@ export const updateOrderStatus = createAsyncThunk(
     try {
       console.log(`🔄 Redux: Updating AirtelTigo order ${orderId} status to ${status}`);
       
-      const response = await fetch(`http://localhost:4400/api/admin/orders/at/${orderId}/status`, {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/at/${orderId}/status`, {
         method: 'PATCH',
         credentials: 'include',
         headers: {
@@ -125,7 +126,7 @@ export const bulkUpdateOrderStatus = createAsyncThunk(
     try {
       console.log(`🔄 Redux: Bulk updating ${orderIds.length} AirtelTigo orders status to ${status}`);
       
-      const response = await fetch('http://localhost:4400/api/admin/orders/at/bulk-status', {
+      const response = await fetch(`${API_BASE_URL}/admin/orders/at/bulk-status`, {
         method: 'PATCH',
         credentials: 'include',
         headers: {

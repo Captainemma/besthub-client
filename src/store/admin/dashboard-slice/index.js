@@ -7,7 +7,7 @@ export const fetchAdminDashboardData = createAsyncThunk(
     try {
       console.log('🔄 Fetching dashboard data with cookies...');
       
-      const response = await fetch('http://localhost:4400/api/admin/dashboard', {
+      const response = await fetch(`${API_BASE_URL}/admin/dashboard`, {
         credentials: 'include', // This sends cookies automatically
         headers: {
           'Content-Type': 'application/json'

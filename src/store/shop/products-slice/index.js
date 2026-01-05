@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { API_BASE_URL } from '../../../config';  
 
 const initialState = {
   isLoading: false,
@@ -14,7 +15,7 @@ export const fetchBundlesByNetwork = createAsyncThunk(
   'products/fetchBundlesByNetwork',
   async (network, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:4400/api/shop/products/bundles/network/${network}`, {
+      const response = await fetch(`${API_BASE_URL}/shop/products/bundles/network/${network}`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -43,7 +44,7 @@ export const purchaseDataPackage = createAsyncThunk(
   'products/purchaseDataPackage',
   async (purchaseData, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:4400/api/shop/orders', {
+      const response = await fetch(`${API_BASE_URL}/shop/orders`, {
         method: 'POST',
         credentials: 'include',
         headers: {

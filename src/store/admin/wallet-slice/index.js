@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { API_BASE_URL } from '../../../config';
 
 // Async thunk to fetch all users with wallet balances
 export const fetchAllUsersWithWallets = createAsyncThunk(
   'adminWallet/fetchAllUsers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:4400/api/admin/wallets', {
+      const response = await fetch(`${API_BASE_URL}/admin/wallets`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -34,7 +35,7 @@ export const adjustWalletBalance = createAsyncThunk(
   'adminWallet/adjustBalance',
   async ({ userId, amount, description }, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:4400/api/admin/wallets/adjust-balance', {
+      const response = await fetch(`${API_BASE_URL}/admin/wallets/adjust-balance`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -69,7 +70,7 @@ export const fetchWalletTransactions = createAsyncThunk(
   'adminWallet/fetchTransactions',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:4400/api/admin/wallets/transactions', {
+      const response = await fetch(`${API_BASE_URL}/admin/wallets/transactions`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'

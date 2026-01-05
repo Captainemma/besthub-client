@@ -277,8 +277,9 @@ export const dataPackagePrices = {
   ],
 };
 
-// API Configuration
-export const API_BASE_URL = "http://localhost:4400/api";
+// ✅ This is CORRECT - has /api at the end
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4400";
+export const API_BASE_URL = `${BASE_URL}/api`;
 
 // API Endpoints
 export const API_ENDPOINTS = {
@@ -329,9 +330,9 @@ export const PAYMENT_CONFIG = {
 
 // App configuration
 export const APP_CONFIG = {
-  APP_NAME: "DataSell Ghana",
+  APP_NAME: "Besthub Ghana",
   APP_DESCRIPTION: "Buy MTN, Telecel, and AirtelTigo data bundles instantly",
-  SUPPORT_EMAIL: "support@datasell.com",
+  SUPPORT_EMAIL: "support@besthubg.com",
   SUPPORT_PHONE: "+233 54 000 0000",
 };
 
